@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="(C) Copyright 2022" />
+<meta name="DC.rights.owner" content="(C) Copyright 2022" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Pass Parameters to Array" />
+<meta name="abstract" content="" />
+<meta name="description" content="" />
+<meta name="DC.Rights.Usage" content="ericsson_internal" />
+<meta name="workitem" content="NA" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="pass_parameters_to_array" />
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<title>Pass Parameters to Array</title>
+</head>
+<body id="pass_parameters_to_array">
+
+    <h1 class="title topictitle1" id="ariaid-title1">Pass Parameters to Array</h1>
+
+    
+    
+    <div class="body conbody"><p class="shortdesc"></p>
+
+        <p class="p"><span class="ph"><strong class="ph b">二维</strong></span></p>
+
+        <div class="p">定义：<ul class="ul" id="pass_parameters_to_array__ul_njr_1nz_1tb">
+                <li class="li"><code class="ph codeph">void printValues(int *x, size_type size){}</code></li>
+
+                <li class="li"><code class="ph codeph">void printValues(int x[], size_type size){}</code></li>
+
+                <li class="li"><code class="ph codeph">void printValues(int x[10], size_type size){}</code></li>
+
+            </ul>
+</div>
+
+        <p class="p">调用：<code class="ph codeph">printValues(arr,8);</code></p>
+
+        <p class="p"><span class="ph"><strong class="ph b">三维</strong></span></p>
+
+        <p class="p">定义：<code class="ph codeph">void printValues_2(int (*x)[10],int rowSize){}</code></p>
+
+        <div class="p">调用：<pre class="pre codeblock"><code>int m [][10] =
+{
+    {1,1,1,1,1,1,1,1,1,1},
+    {1,1,1,1,1,1,1,1,1,1},
+    {1,1,1,1,1,1,1,1,1,1} 
+};
+printValues_2(m,3);</code></pre></div>
+
+        <p class="p"><span class="ph"><strong class="ph b">C++标准库的遍历，以二维为例</strong></span></p>
+
+        <p class="p">定义：<code class="ph codeph">void printValues_3(const int *beg, const int *end){};</code></p>
+
+        <p class="p">调用：<code class="ph codeph">printVaues_3(arr,arr+<span class="keyword parmname">列数</span>);</code></p>
+
+        <p class="p"><span class="ph"><strong class="ph b">以C风格传字符串，以二维为例</strong></span></p>
+
+        <div class="p">定义：<pre class="pre codeblock"><code>void printChars(const char *x)
+{
+    while (*x != NULL)
+        cout &lt;&lt; *x++;
+    cout &lt;&lt; endl;
+};</code></pre></div>
+
+        <p class="p">调用：<code class="ph codeph">printChars(s);</code></p>
+
+    </div>
+
+</body>
+</html>

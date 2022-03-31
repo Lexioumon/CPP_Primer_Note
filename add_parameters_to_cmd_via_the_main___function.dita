@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="add_parameters_to_cmd_via_the_main___function">
+    <title>Add Parameters to CMD via The main() Function</title>
+    <shortdesc></shortdesc>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>
+            <codeblock>int main(int argc, char **argv) //第二个参数是指向指针的指针，等同于*argv[]
+{   
+    if (argc != 3)
+    {
+        cout &lt;&lt; "Must contian three arguments!" &lt;&lt; endl;
+        return -1;
+    }
+    cout &lt;&lt; "SUM is:"
+         &lt;&lt; (atof(argv[1]) + (atof(argv[2]))) &lt;&lt; endl; 
+}</codeblock>
+        </p>
+    </conbody>
+</concept>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+    <booktitle>
+        <mainbooktitle>CPP Primer Note</mainbooktitle>
+    </booktitle>
+    <bookmeta>
+        <publisherinformation>
+            <published>
+                <organization/>
+                <completed>
+                    
+                    
+                    <year>2022</year><month>3</month><day>30</day>
+                </completed>
+            </published>
+        </publisherinformation>
+        <permissions view="ericsson_internal"/>
+        <audience othertype="all" type="other"/>
+        <category/>
+        <keywords>
+            <keyword/>
+        </keywords>
+        <bookid>
+            <edition>PA99</edition>
+            <booknumber>00/000 00-AAA 000 00<option otherprops="V0">-V0</option></booknumber>
+        </bookid>
+        <bookchangehistory>
+            <reviewed>
+                <person value=""/>
+            </reviewed>
+            <edited value="Yes">
+                <person value="ziuxial">Diána Arnold</person>
+                <organization>XKU/PDUPC</organization>
+            </edited>
+            <approved value="No">
+                <person value="zarndia">ziuxial</person>
+                <organization>None</organization>
+            </approved>
+            <bookevent>
+                <bookeventtype name="workflow_status" value="work"/>
+            </bookevent>
+            <bookevent>
+                <bookeventtype name="changerecord"/>
+                <person value=""/>
+                <revisionid/>
+                <completed>
+                    <year/>
+                    <month/>
+                    <day/>
+                </completed>
+                <summary/>
+            </bookevent>
+        </bookchangehistory>
+        <bookrights>
+            <copyrfirst>
+                <year>2019-2022</year>
+            </copyrfirst>
+            <bookowner>
+                <organization>Ericsson AB</organization>
+            </bookowner>
+            <bookrestriction value="NA"/>
+        </bookrights>
+    </bookmeta>
+    
+    <frontmatter>
+        <booklists>
+            <trademarklist/>
+            <toc outputclass="toc2"/>
+        </booklists><preface><mapref format="ditamap" keyref="zxi1558601997183"/></preface>
+    </frontmatter>
+    <containerref href="unknown"/>
+    <chapter href="pass_array_parameters.dita"/>
+    <chapter href="add_parameters_to_cmd_via_the_main___function.dita"/>
+    
+    
+    <backmatter>
+        <booklists>
+            <bibliolist/>
+        </booklists>  
+    </backmatter>
+    
+    <reltable>
+        <!--Complete the relationship table as needed with source topic in first and target topic in the second cell-->
+        <relheader>
+            <relcolspec linking="sourceonly" type="topic"/>
+            <relcolspec linking="targetonly" type="topic"/>
+        </relheader>
+        <relrow>
+            <relcell/>
+            <relcell/>
+        </relrow>
+        <relrow>
+            <relcell/>
+            <relcell/>
+        </relrow>
+        <relrow>
+            <relcell/>
+            <relcell/>
+        </relrow>
+        <relrow>
+            <relcell/>
+            <relcell/>
+        </relrow>
+    </reltable>
+</bookmap>

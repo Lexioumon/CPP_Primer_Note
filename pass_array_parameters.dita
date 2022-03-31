@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="pass_array_parameters">
+    <title>Pass Array Parameters</title>
+    <shortdesc></shortdesc>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p><ph importance="normal"><b>二维</b></ph></p>
+        <p>定义：<ul id="ul_njr_1nz_1tb">
+                <li><codeph>void printValues(int *x, size_type size){}</codeph></li>
+                <li><codeph>void printValues(int x[], size_type size){}</codeph></li>
+                <li><codeph>void printValues(int x[10], size_type size){}</codeph></li>
+            </ul></p>
+        <p>调用：<codeph>printValues(arr,8);</codeph></p>
+        <p><ph importance="normal"><b>三维</b></ph></p>
+        <p>定义：<codeph>void printValues_2(int (*x)[10],int rowSize){}</codeph></p>
+        <p>调用：<codeblock>int m [][10] =
+{
+    {1,1,1,1,1,1,1,1,1,1},
+    {1,1,1,1,1,1,1,1,1,1},
+    {1,1,1,1,1,1,1,1,1,1} 
+};
+printValues_2(m,3);</codeblock></p>
+        <p><ph importance="normal"><b>C++标准库的遍历，以二维为例</b></ph></p>
+        <p>定义：<codeph>void printValues_3(const int *beg, const int *end){};</codeph></p>
+        <p>调用：<codeph>printVaues_3(arr,arr+<parmname>列数</parmname>);</codeph></p>
+        <p><ph importance="normal"><b>以C风格传字符串，以二维为例</b></ph></p>
+        <p>定义：<codeblock>void printChars(const char *x)
+{
+    while (*x != NULL)
+        cout &lt;&lt; *x++;
+    cout &lt;&lt; endl;
+};</codeblock></p>
+        <p>调用：<codeph>printChars(s);</codeph></p>
+    </conbody>
+</concept>

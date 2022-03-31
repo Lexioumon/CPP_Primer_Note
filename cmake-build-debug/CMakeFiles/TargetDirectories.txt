@@ -1,0 +1,3 @@
+C:/Users/xli/OneDrive - Sigma Technology/Desktop/C++ Primer笔记/cmake-build-debug/CMakeFiles/C___Primer.dir
+C:/Users/xli/OneDrive - Sigma Technology/Desktop/C++ Primer笔记/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/xli/OneDrive - Sigma Technology/Desktop/C++ Primer笔记/cmake-build-debug/CMakeFiles/rebuild_cache.dir
