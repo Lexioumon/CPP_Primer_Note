@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="(C) Copyright 2022" />
+<meta name="DC.rights.owner" content="(C) Copyright 2022" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Include &lt;fstream&gt;" />
+<meta name="abstract" content="" />
+<meta name="description" content="" />
+<meta name="DC.Rights.Usage" content="ericsson_internal" />
+<meta name="workitem" content="NA" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="include__fstream_" />
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<title>Include &lt;fstream&gt;</title>
+</head>
+<body id="include__fstream_">
+
+    <h1 class="title topictitle1" id="ariaid-title1">Include &lt;fstream&gt;</h1>
+
+    
+    
+    <div class="body conbody"><p class="shortdesc"></p>
+
+        <div class="p">
+            <pre class="pre codeblock"><code>#include &lt;fstream&gt;</code></pre>
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="include__fstream___table_dmt_mvw_ctb" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap"><span class="table--title-label">Table 1. </span>ofstream基本语句</span></caption><colgroup><col style="width:50%" /><col style="width:50%" /></colgroup><thead class="thead" style="text-align:left;">
+                        <tr class="row">
+                            <th class="entry cellrowborder" id="d52e56">语句</th>
+
+                            <th class="entry cellrowborder" id="d52e59">含义</th>
+
+                        </tr>
+
+                    </thead>
+<tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry cellrowborder" headers="d52e56 "><code class="ph codeph">ofstream
+                                <kbd class="ph userinput">outfile</kbd>("<kbd class="ph userinput">文件名</kbd>");</code></td>
+
+                            <td class="entry cellrowborder" headers="d52e59 ">输出一个文件，名字为“文件名”。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry cellrowborder" headers="d52e56 "><code class="ph codeph"><kbd class="ph userinput">outfile</kbd> &lt;&lt;
+                                        ("<kbd class="ph userinput">内容</kbd>");</code></td>
+
+                            <td class="entry cellrowborder" headers="d52e59 ">将“内容”写入“文件名”文件。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry cellrowborder" headers="d52e56 "><pre class="pre codeblock"><code><kbd class="ph userinput">outfile</kbd>.close();
+<kbd class="ph userinput">outfile</kbd>.clear();</code></pre></td>
+
+                            <td class="entry cellrowborder" headers="d52e59 ">关闭输出流。</td>
+
+                        </tr>
+
+                    </tbody>
+</table>
+</div>
+
+            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="include__fstream___table_irn_gww_ctb" class="table" frame="border" border="1" rules="all"><caption><span class="tablecap"><span class="table--title-label">Table 2. </span>ifstream基本语句</span></caption><colgroup><col style="width:50%" /><col style="width:50%" /></colgroup><thead class="thead" style="text-align:left;">
+                        <tr class="row">
+                            <th class="entry cellrowborder" id="d52e130">语句</th>
+
+                            <th class="entry cellrowborder" id="d52e133">含义</th>
+
+                        </tr>
+
+                    </thead>
+<tbody class="tbody">
+                        <tr class="row">
+                            <td class="entry cellrowborder" headers="d52e130 "><code class="ph codeph">ifstream
+                                        <kbd class="ph userinput">infile</kbd>("<kbd class="ph userinput">文件名</kbd>");</code></td>
+
+                            <td class="entry cellrowborder" headers="d52e133 ">读取“文件名”文件，此时“文件名”与infile已形成绑定关系。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry cellrowborder" headers="d52e130 "><pre class="pre codeblock"><code>string <kbd class="ph userinput">s</kbd>;
+while (<kbd class="ph userinput">infile</kbd> &gt;&gt; <kbd class="ph userinput">s</kbd>, !infile.eof);
+<kbd class="ph userinput">infile</kbd>.close();
+<kbd class="ph userinput">infile</kbd>.clear();</code></pre></td>
+
+                            <td class="entry cellrowborder" headers="d52e133 ">将“文件名”的“内容”写入字符串变量s中。</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry cellrowborder" headers="d52e130 ">
+                                <pre class="pre codeblock"><code>string <kbd class="ph userinput">s</kbd>;
+ifstream <kbd class="ph userinput">infile</kbd>(<kbd class="ph userinput">s</kbd>.c_str());
+infile.close();
+infile.clear();</code></pre>
+                            </td>
+
+                            <td class="entry cellrowborder" headers="d52e133 ">同上，不同的写法</td>
+
+                        </tr>
+
+                        <tr class="row">
+                            <td class="entry cellrowborder" headers="d52e130 ">
+                                <pre class="pre codeblock"><code>ifstream <kbd class="ph userinput">infile</kbd>;
+string s;
+infile.open(s.c_str());//若是指针，用it-&gt;c_str();
+</code></pre>
+                            </td>
+
+                            <td class="entry cellrowborder" headers="d52e133 ">同上，不同写法。目的是不在开端绑定infile和文件。</td>
+
+                        </tr>
+
+                    </tbody>
+</table>
+</div>
+
+        </div>
+
+        <div class="example"><span class="ph">往向量里塞文件</span><div class="p">
+                <pre class="pre codeblock"><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+vector&lt;string&gt; files;
+files.push_back("文件1");
+files.push_back("文件2");
+files.push_back("文件3");
+vector&lt;string&gt;::const_iterator itr = files.begin();
+while (itr != files.end())
+{
+    ifstream infile(itr-&gt;c_str);//C语言的传参风格，历史遗留问题
+    if (!infile)
+    {
+        cerr &lt;&lt; "Error" &lt;&lt; *itr &lt;&lt; endl;
+        infile.clear();
+        ++itr;
+        continue;
+    }
+    while (infile &gt;&gt; s)
+        process s; //在头文件定义的void()类型函数，等同于cout
+        infile.close();
+        infile.clear();
+}
+</code></pre>
+            </div>
+</div>
+
+    </div>
+
+</body>
+</html>

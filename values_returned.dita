@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="values_returned">
+    <title>Values Returned</title>
+    <shortdesc></shortdesc>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>
+            <codeblock>return 0; //函数结束，main()函数一般以此结尾</codeblock>
+            <codeblock>return -1;//返回错误值，只要不是0，效果都一样</codeblock>
+            <codeblock>return;//void()函数专用，可以不写</codeblock>
+            <note>
+                <ul id="ul_uyq_ffn_btb">
+                    <li>不可返回局部变量的引用</li>
+                    <li>不可返回指向局部对象的指针</li>
+                </ul>
+            </note>
+        </p>
+    </conbody>
+</concept>

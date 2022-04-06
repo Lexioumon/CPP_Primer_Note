@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="include__fstream_">
+    <title>Include &lt;fstream></title>
+    <shortdesc></shortdesc>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p>
+            <codeblock>#include &lt;fstream></codeblock>
+            <table frame="all" rowsep="1" colsep="1" id="table_dmt_mvw_ctb">
+                <title>ofstream基本语句</title>
+                <tgroup cols="2">
+                    <colspec colname="c1" colnum="1" colwidth="1*"/>
+                    <colspec colname="c2" colnum="2" colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>语句</entry>
+                            <entry>含义</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry><codeph>ofstream
+                                <userinput>outfile</userinput>("<userinput>文件名</userinput>");</codeph></entry>
+                            <entry>输出一个文件，名字为“文件名”。</entry>
+                        </row>
+                        <row>
+                            <entry><codeph><userinput>outfile</userinput> &lt;&lt;
+                                        ("<userinput>内容</userinput>");</codeph></entry>
+                            <entry>将“内容”写入“文件名”文件。</entry>
+                        </row>
+                        <row>
+                            <entry><codeblock><userinput>outfile</userinput>.close();
+<userinput>outfile</userinput>.clear();</codeblock></entry>
+                            <entry>关闭输出流。</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <table frame="all" rowsep="1" colsep="1" id="table_irn_gww_ctb">
+                <title>ifstream基本语句</title>
+                <tgroup cols="2">
+                    <colspec colname="c1" colnum="1" colwidth="1*"/>
+                    <colspec colname="c2" colnum="2" colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>语句</entry>
+                            <entry>含义</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry><codeph>ifstream
+                                        <userinput>infile</userinput>("<userinput>文件名</userinput>");</codeph></entry>
+                            <entry>读取“文件名”文件，此时“文件名”与infile已形成绑定关系。</entry>
+                        </row>
+                        <row>
+                            <entry><codeblock>string <userinput>s</userinput>;
+while (<userinput>infile</userinput> >> <userinput>s</userinput>, !infile.eof);
+<userinput>infile</userinput>.close();
+<userinput>infile</userinput>.clear();</codeblock></entry>
+                            <entry>将“文件名”的“内容”写入字符串变量s中。</entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <codeblock>string <userinput>s</userinput>;
+ifstream <userinput>infile</userinput>(<userinput>s</userinput>.c_str());
+infile.close();
+infile.clear();</codeblock>
+                            </entry>
+                            <entry>同上，不同的写法</entry>
+                        </row>
+                        <row>
+                            <entry>
+                                <codeblock>ifstream <userinput>infile</userinput>;
+string s;
+infile.open(s.c_str());//若是指针，用it->c_str();
+</codeblock>
+                            </entry>
+                            <entry>同上，不同写法。目的是不在开端绑定infile和文件。</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </p>
+        <example><ph>往向量里塞文件</ph><p>
+                <codeblock>#include &lt;iostream>
+#include &lt;fstream>
+#include &lt;vector>
+#include &lt;string>
+
+int main()
+{
+    vector&lt;string> files;
+    files.push_back("文件1");
+    files.push_back("文件2");    
+    files.push_back("文件3");
+    vector&lt;string>::const_iterator itr = files.begin();
+    while (itr != files.end())
+    {
+        ifstream infile(itr->c_str);//C语言的传参风格，历史遗留问题
+        if (!infile)
+        {
+            cerr &lt;&lt; "Error" &lt;&lt; *itr &lt;&lt; endl;
+            infile.clear();
+            ++itr;
+            continue;
+        }
+        string s;
+        while (infile >> s)
+            process s; //在头文件定义的void()类型函数，等同于cout
+            infile.close();
+            infile.clear();
+    }
+    return 0;
+}
+</codeblock>
+            </p></example>
+    </conbody>
+</concept>

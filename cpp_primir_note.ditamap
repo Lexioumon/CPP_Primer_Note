@@ -69,9 +69,11 @@
             <toc outputclass="toc2"/>
         </booklists><preface><mapref format="ditamap" keyref="zxi1558601997183"/></preface>
     </frontmatter>
-    <containerref href="unknown"/>
+    <!-- <containerref href="unknown"/> 不知道怎么加icon -->
     <chapter href="pass_array_parameters.dita"/>
     <chapter href="add_parameters_to_cmd_via_the_main___function.dita"/>
+    <chapter href="values_returned.dita"/>
+    <chapter href="include__fstream_.dita"/>
     
     
     <backmatter>
