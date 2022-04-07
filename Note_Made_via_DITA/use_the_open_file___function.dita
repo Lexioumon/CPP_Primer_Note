@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="use_the_open_file___function">
+    <title>Use the open_file() Function</title>
+    <shortdesc></shortdesc>
+    <prolog>
+        <source/>
+        <permissions view="ericsson_internal"/>
+        <metadata>
+            <keywords>
+                <keyword/>
+            </keywords>
+            <othermeta content="NA" name="workitem"/>
+        </metadata>
+        <resourceid appid="NA"/>
+    </prolog>
+    <conbody>
+        <p><ph>源文件1</ph><codeblock>#include &lt;iostream>
+#include &lt;fstream>
+#include &lt;string>
+#include "get.h"
+using namespace std;
+
+ifstream&amp; open_file (ifstream &amp;in, const string &amp;file)
+{
+    in.close(); //防止文件之前被打开过
+    in.clear(); //双保险
+    in.open(file.c_str());
+    return in;
+}
+
+int main()
+{
+    string fileName, s;
+    cout &lt;&lt; "Enter your filename:" &lt;&lt; endl; //动态保存文件名
+    cin >> fileName;    
+    ifstream inFile;
+    if (!open_file(inFile, fileName))
+    {
+        cerr &lt;&lt; "error" &lt;&lt; fileName &lt;&lt; endl;
+        return -1;
+    }
+    get(inFile);
+    inFile.close();
+    return 0;
+}</codeblock></p>
+        <p><ph>源文件2</ph><codeblock>#include "get.h"
+std::istream&amp; get(std::istream&amp; in)
+{
+    int ival;
+    while (in >> ival, !in.eof())
+    {
+        if(in.bad())
+            throw std::runtime_error("IO stream corrupted.");
+        if(in.fail)
+        {
+            std::cerr &lt;&lt; "Bad data. Try again." &lt;&lt; std::endl;
+            in.clear();
+            in.ignore(200,'\n');
+            countinue;
+        }
+        std::cout &lt;&lt; "输入的数据：" &lt;&lt; ival &lt;&lt; endl;
+    }
+    in.clear();
+}</codeblock></p>
+        <p><ph>头文件</ph></p>
+        <codeblock>#ifndef _GET_H
+#define _GET_H
+#include &lt;iostream>
+
+std::istream&amp; get(std::istream&amp; in);
+
+#endif</codeblock>
+    </conbody>
+</concept>

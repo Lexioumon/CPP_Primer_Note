@@ -74,6 +74,7 @@
     <chapter href="add_parameters_to_cmd_via_the_main___function.dita"/>
     <chapter href="values_returned.dita"/>
     <chapter href="include__fstream_.dita"/>
+    <chapter href="use_the_open_file___function.dita"/>
     
     
     <backmatter>
